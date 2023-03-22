@@ -1,47 +1,15 @@
-import Input from "./components/Inputs/Input";
+import Form from "./components/Form/Form";
 import { useState } from "react";
-import Table from "./components/Inputs/Table";
+
 import List from "./components/List/List";
 function App() {
-  const orderlist = JSON.parse(localStorage.getItem('orders')) === null ? [] : JSON.parse(localStorage.getItem('orders'));
-  const [orderId, setOrderId] = useState("");
-  const [price, setPrice] = useState("");
-  const [dish, setDish] = useState("");
-  const [table, setTable] = useState("table1");
-  const [orders, setOrders] = useState(orderlist)
-  
-  const orderIdHandler = (value) => {
-    setOrderId(value);
-    console.log(value);
-  };
-  const priceHandler = (value) => {
-    setPrice(value);
-    console.log(value);
-  };
+  const orderlist =
+    JSON.parse(localStorage.getItem("orders")) === null
+      ? []
+      : JSON.parse(localStorage.getItem("orders"));
 
-  const dishHandler = (value) => {
-    setDish(value);
-    console.log(value);
-  };
-  const tableHandler = (value) => {
-    setTable(value);
-    console.log(value);
-  };
-  const formSubmitHandler = (e) => {
-    e.preventDefault();
-    setOrders((prevOrders) => {
-      const arr = [
-        { Id: orderId, Price: price, Dish: dish, Table: table },
-        ...prevOrders,
-      ];
-      localStorage.setItem("orders", JSON.stringify(arr));
-      return arr;
-    });
-    setOrderId('');
-    setDish('');
-    setPrice('');
-    setTable('table1');
-  };
+  const [orders, setOrders] = useState(orderlist);
+
   function DeleteOrder(id) {
     setOrders((prevOrders) => {
       const arr = prevOrders.filter((item) => item.Id !== id);
@@ -49,34 +17,16 @@ function App() {
       return arr;
     });
   }
-
+  const formSubmitHandler = (value) => {
+    setOrders((prevOrders) => {
+      const arr = [value,...prevOrders];
+      localStorage.setItem("orders", JSON.stringify(arr));
+      return arr;
+    });
+  };
   return (
     <>
-      <form onSubmit={formSubmitHandler} style={{ display: "flex" }}>
-        <Input
-          id="orderid"
-          type="text"
-          value={orderId}
-          title=" Unique OrderId:"
-          onChange={orderIdHandler}
-        ></Input>
-        <Input
-          id="orderid"
-          type="number"
-          value={price}
-          title=" Choose Price: "
-          onChange={priceHandler}
-        ></Input>
-        <Input
-          id="orderid"
-          type="text"
-          value={dish}
-          title=" Choose Dish: "
-          onChange={dishHandler}
-        ></Input>
-        <Table onChange={tableHandler}></Table>
-        <button> ADD BILL </button>
-      </form>
+      <Form onSubmit={formSubmitHandler}></Form>
       <List
         key="table1"
         title="TABLE 1"

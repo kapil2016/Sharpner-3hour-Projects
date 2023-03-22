@@ -6,12 +6,11 @@ const List = (props) => {
     <>
       <h2>{props.title}</h2>
       <ul>
-        {props.items.map((item,index) => {
+        {props.items.map((item) => {
           return (
-            <div style={{display:"flex"}}>
-              <li key={item.Id}>
-                {" "}
-                {item.Price} - {item.Table} - {item.Dish}{" "}
+            <div key={item.Id} style={{display:"flex"}}>
+              <li >
+               {`${item.Price} - ${item.Table} - ${item.Dish}`}
               </li>{" "}
               <button id={item.Id} onClick={deleteItemHandler}> Delete Order</button>
             </div>
