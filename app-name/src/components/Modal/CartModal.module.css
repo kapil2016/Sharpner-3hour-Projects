@@ -1,0 +1,69 @@
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal-close-btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: #aaa;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .modal-body {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the button that opens the modal */
+  /* button {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button:hover {
+    background-color: #0069d9;
+  }
+  

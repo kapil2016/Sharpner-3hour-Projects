@@ -1,0 +1,7 @@
+.input-box{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 10px 10px;
+
+}

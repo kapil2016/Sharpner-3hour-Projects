@@ -1,0 +1,12 @@
+.product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.product button{
+    margin: 5px;
+    height: auto;
+
+}
